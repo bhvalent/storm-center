@@ -1,0 +1,27 @@
+{
+    "React Native component": {
+		"prefix": "rn_component",
+		"body": [
+			"import React from 'react'",
+			"import { StyleSheet, Text, View } from 'react-native'",
+			"",
+			"export default function ${1:name}({ style, ...rest }) {",
+			"  return (",
+			"    <View style={[styles.container, style]} {...rest}>",
+			"      <Text>Behold, the ${1:name}!</Text>",
+			"    </View>",
+			"  )",
+			"}",
+			"",
+			"const styles = StyleSheet.create({",
+			"  container: {",
+			"    flex: 1,",
+			"    alignItems: 'center',",
+			"    justifyContent: 'center'",
+			"  }",
+			"})",
+			""
+		],
+		"description": "React Native component"
+	}
+}
