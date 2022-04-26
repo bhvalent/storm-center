@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, FlatList, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Platform, Alert } from 'react-native'
+import { Text, View, FlatList, StyleSheet, Image } from 'react-native'
 
 import PRODUCTS from '../../data/dummy-products'
 import PressableCard from '../../components/ui/PressableCard'
@@ -11,6 +11,10 @@ export default function ProductsOverview({ style, ...rest }) {
     return (
       <PressableCard style={styles.card}>
         <View style={styles.cardContents}>
+          <Image 
+            source={{ uri: item.imageUrl }}
+            style={styles.image}
+          />
           <Text>{item.name}</Text>
         </View>
       </PressableCard>
@@ -27,6 +31,11 @@ const styles = StyleSheet.create({
     margin: 10
   },
   cardContents: {
-    padding: 20
+    padding: 20,
+    alignItems: 'center'
+  },
+  image: {
+    height: 200,
+    width: 200
   }
 })

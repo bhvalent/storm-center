@@ -14,6 +14,13 @@ const PRODUCTS = [
     'https://www.gnc.com/dw/image/v2/BBLB_PRD/on/demandware.static/-/Sites-master-catalog-gnc/default/dw38b0c1de/hi-res/574922_web_NOCCO%20Limon%20Del%20Sol_can_Front.jpg?sw=480&sh=480&sm=fit',
     'NOCCO Limón Del Sol was inspired by the Mediterranean coast with a refreshing taste of citrus',
     1.99
+  ),
+  new Product(
+    'p3',
+    'Bolt24 - Antioxidant',
+    'https://www.coltrades.com/9874-large_default/bolt24-fueled-by-gatorade-hydration-with-antioxidants-and-electrolytes-watermelon-strawberry-16-9-oz-bottle.jpg',
+    'Hydration that keeps it real with electrolytes from watermelon and sea salt',
+    1.50
   )
 ];
 
