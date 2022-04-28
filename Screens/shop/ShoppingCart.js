@@ -1,10 +1,12 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import RegularText from '../../components/ui/RegularText';
 
 export default function ShoppingCart({ style, ...rest }) {
   return (
     <View style={[styles.container, style]} {...rest}>
-      <Text>Behold, the ShoppingCart!</Text>
+      <RegularText>Behold, the ShoppingCart!</RegularText>
     </View>
   )
 }

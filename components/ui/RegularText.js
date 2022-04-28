@@ -13,6 +13,7 @@ const colors = getColors();
 const styles = StyleSheet.create({
   text: {
     fontSize: 18,
-    color: colors.white
+    color: colors.white,
+    margin: 10
   }
 });

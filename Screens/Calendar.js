@@ -1,10 +1,12 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import RegularText from '../components/ui/RegularText';
 
 export default function Calendar({ style, ...rest }) {
   return (
     <View style={[styles.container, style]} {...rest}>
-      <Text>Behold, the Calendar!</Text>
+      <RegularText>Behold, the Calendar!</RegularText>
     </View>
   )
 }

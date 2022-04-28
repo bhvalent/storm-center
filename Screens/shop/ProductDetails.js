@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, useWindowDimensions } from 'react-native';
+import { StyleSheet, View, Image, useWindowDimensions } from 'react-native';
 
 import { useShopData } from '../../data/ShopData';
+import RegularText from '../../components/ui/RegularText';
 
 export default function ProductDetails({ style, route, ...rest }) {
   const { id } = route.params;
@@ -19,8 +20,8 @@ export default function ProductDetails({ style, route, ...rest }) {
           height: windowDimensions.height * 0.4
         }}
       />
-      <Text>{product.name}</Text>
-      <Text style={{ textAlign: 'center' }}>{product.description}</Text>
+      <RegularText style={styles.name}>{product.name}</RegularText>
+      <RegularText style={{ textAlign: 'center' }}>{product.description}</RegularText>
     </View>
   );
 }
@@ -38,5 +39,9 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'black',
     borderRadius: 25
+  },
+  name: {
+    fontWeight: 'bold',
+    fontSize: 24
   }
 })

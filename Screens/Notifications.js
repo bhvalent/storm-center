@@ -1,10 +1,12 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import RegularText from '../components/ui/RegularText';
 
 export default function Notifications({ style, ...rest }) {
   return (
     <View style={[styles.container, style]} {...rest}>
-      <Text>Behold, the Notifications!</Text>
+      <RegularText>Behold, the Notifications!</RegularText>
     </View>
   )
 }
