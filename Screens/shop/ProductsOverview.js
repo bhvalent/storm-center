@@ -3,6 +3,10 @@ import { Text, View, FlatList, StyleSheet, Image } from 'react-native';
 
 import PRODUCTS from '../../data/dummy-products'
 import PressableCard from '../../components/ui/PressableCard'
+import { getColors } from '../../constants/theme';
+import RegularText from '../../components/ui/RegularText';
+
+const colors = getColors();
 
 export default function ProductsOverview({ style, navigation, ...rest }) {
   const products = PRODUCTS;
@@ -19,7 +23,7 @@ export default function ProductsOverview({ style, navigation, ...rest }) {
             source={{ uri: item.imageUrl }}
             style={styles.image}
           />
-          <Text>{item.name}</Text>
+          <RegularText>{item.name}</RegularText>
         </View>
       </PressableCard>
     );
@@ -32,7 +36,8 @@ export default function ProductsOverview({ style, navigation, ...rest }) {
 
 const styles = StyleSheet.create({
   card: {
-    margin: 10
+    margin: 10,
+    backgroundColor: colors.darkGrey
   },
   cardContents: {
     padding: 20,
@@ -40,6 +45,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 200,
-    width: 200
+    width: 200,
+    borderRadius: 10
   }
 })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import FontAwesome5Icon from '@expo/vector-icons/FontAwesome5';
 import FontAwesomeIcon from '@expo/vector-icons/FontAwesome';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,17 +9,23 @@ import Notifications from '../screens/Notifications';
 import Profile from '../screens/Profile';
 import Menu from '../screens/Menu';
 import ShopStack from './ShopStack';
+import StormCenterLogoTitle from '../components/StormCenterLogoTitle';
 
 const Tab = createBottomTabNavigator();
 
 export default TabNavigator = () => {
+  const tabScreenOptions = {
+    headerTitle: (props) => <StormCenterLogoTitle {...props} />
+  }
+
   return (
-    <Tab.Navigator >
+    <Tab.Navigator screenOptions={tabScreenOptions}>
       <Tab.Screen
         name="Whiteboard"
         component={Whiteboard}
         options={{
           tabBarShowLabel: false,
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5Icon name="chalkboard-teacher" color={color} size={size} />
           )
@@ -30,6 +36,7 @@ export default TabNavigator = () => {
         component={Calendar}
         options={{
           tabBarShowLabel: false,
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color, size }) => (
             <FontAwesomeIcon name="calendar" color={color} size={size} />
           )
@@ -51,6 +58,7 @@ export default TabNavigator = () => {
         component={Profile}
         options={{
           tabBarShowLabel: false,
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5Icon name="user" color={color} size={size} />
           )
@@ -61,6 +69,7 @@ export default TabNavigator = () => {
         component={Notifications}
         options={{
           tabBarShowLabel: false,
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5Icon name="bell" color={color} size={size} />
           )
@@ -71,6 +80,7 @@ export default TabNavigator = () => {
         component={Menu}
         options={{
           tabBarShowLabel: false,
+          headerTitleAlign: 'center',
           tabBarIcon: ({ color, size }) => (
             <FontAwesomeIcon name="navicon" color={color} size={size} />
           )
