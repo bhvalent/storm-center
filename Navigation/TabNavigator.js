@@ -5,14 +5,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Whiteboard from '../screens/Whiteboard';
 import Calendar from '../screens/Calendar';
-import ProductsOverview from '../screens/shop/ProductsOverview';
 import Notifications from '../screens/Notifications';
 import Profile from '../screens/Profile';
 import Menu from '../screens/Menu';
+import ShopStack from './ShopStack';
 
-export default function TabNavigator({ style, ...rest }) {
-  const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
+export default TabNavigator = () => {
   return (
     <Tab.Navigator >
       <Tab.Screen
@@ -36,10 +36,11 @@ export default function TabNavigator({ style, ...rest }) {
         }}
       />
       <Tab.Screen
-        name="Shop"
-        component={ProductsOverview}
+        name="ShopStack"
+        component={ShopStack}
         options={{
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5Icon name="shopping-bag" color={color} size={size} />
           )

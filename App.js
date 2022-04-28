@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView, StyleSheet } from 'react-native';
+import 'react-native-gesture-handler';
 
 import TabNavigator from './navigation/TabNavigator';
 

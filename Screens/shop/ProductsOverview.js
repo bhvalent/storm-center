@@ -1,15 +1,19 @@
 import React from 'react'
-import { Text, View, FlatList, StyleSheet, Image } from 'react-native'
+import { Text, View, FlatList, StyleSheet, Image } from 'react-native';
 
 import PRODUCTS from '../../data/dummy-products'
 import PressableCard from '../../components/ui/PressableCard'
 
-export default function ProductsOverview({ style, ...rest }) {
+export default function ProductsOverview({ style, navigation, ...rest }) {
   const products = PRODUCTS;
+  
+  const onPressHandler = (id) => {
+    navigation.navigate('ProductDetails', { id });
+  }
 
   const renderItem = ({ item }) => {
     return (
-      <PressableCard style={styles.card}>
+      <PressableCard style={styles.card} onPress={() => onPressHandler(item.id)}>
         <View style={styles.cardContents}>
           <Image 
             source={{ uri: item.imageUrl }}
