@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { getColors } from '../../constants/theme';
 
-export default function RegularText({ style, children }) {
+export default function RegularText({ style, children, onPress }) {
   return (
-    <Text style={[styles.text, style]}>{children}</Text>
+    <Text style={[styles.text, style]} onPress={onPress}>{children}</Text>
   );
 }
 
