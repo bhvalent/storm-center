@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 12,
-    color: 'white',
+    color: colors.black
   },
   badge: {
     backgroundColor: colors.lightBlue,

@@ -6,13 +6,18 @@ function reducer(state, action) {
     case 'add':
       return {
         ...state,
-        shoppingCart: [...state.shoppingCart, action.product]
+        shoppingCart: [...state.shoppingCart, { id: Math.random(), product: action.product }]
       }
     case 'checkout':
       // do checkout logic (api call etc.)
       return {
         ...state,
         shoppingCart: []
+      }
+    case 'delete':
+      return {
+        ...state,
+        shoppingCart: state.shoppingCart.filter(x => x.id !== action.id)
       }
   }
 }

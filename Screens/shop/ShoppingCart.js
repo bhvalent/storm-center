@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
+import { Swipeable } from 'react-native-gesture-handler';
+
 import MainButton from '../../components/ui/MainButton';
 import PressableCard from '../../components/ui/PressableCard';
-
+import Card from '../../components/ui/Card';
 import RegularText from '../../components/ui/RegularText';
 import { getColors } from '../../constants/theme';
 import { useShopData } from '../../data/ShopData';
@@ -14,17 +16,41 @@ export default ShoppingCart = ({ navigation }) => {
 
   const onCheckoutHandler = () => {
     navigation.navigate('OrderConfirmation');
-    dispatch({type: 'checkout'});
+    dispatch({ type: 'checkout' });
+  }
+
+  const onDeleteHandler = (id) => {
+    dispatch({
+      type: 'delete',
+      id: id
+    });
+  }
+
+  const renderRight = (id) => {
+    // TODO: Delete button is only partially pressable with animation
+
+    return (
+      // <View style={styles.deleteBtnContainer}>
+        <PressableCard style={styles.deleteBtn} onPress={() => onDeleteHandler(id)}>
+          <View>
+            <RegularText>Delete</RegularText>
+          </View>
+        </PressableCard>
+      // </View>
+    );
   }
 
   const renderItem = ({ item }) => {
+    const { product, id } = item;
     return (
-      <PressableCard style={styles.card}>
-        <View>
-          <RegularText>{item.name}</RegularText>
-          <RegularText style={styles.itemPrice}>{item.price.toFixed(2)}</RegularText>
-        </View>
-      </PressableCard>
+      <Swipeable renderRightActions={() => renderRight(id)} overshootRight={false}>
+        <Card style={styles.card}>
+          <View>
+            <RegularText>{product.name}</RegularText>
+            <RegularText style={styles.itemPrice}>{product.price.toFixed(2)}</RegularText>
+          </View>
+        </Card>
+      </Swipeable>
     );
   }
 
@@ -36,9 +62,11 @@ export default ShoppingCart = ({ navigation }) => {
   if (state.shoppingCart.length > 0) {
     renderShoppingCart = (
       <View style={styles.nonEmptyContainer}>
-        <FlatList data={state.shoppingCart} keyExtractor={item => item.id} renderItem={renderItem} />
+        <View style={styles.listContainer}>
+          <FlatList data={state.shoppingCart} keyExtractor={item => item.id} renderItem={renderItem} />
+        </View>
         <View style={styles.stickyFooter}>
-          <RegularText style={styles.cartTotal}>TOTAL: {state.shoppingCart.reduce((total, current) => total + current.price, 0).toFixed(2)}</RegularText>
+          <RegularText style={styles.cartTotal}>TOTAL: {state.shoppingCart.reduce((total, current) => total + current.product.price, 0).toFixed(2)}</RegularText>
           <MainButton style={styles.checkoutBtn} onPress={onCheckoutHandler}>CHECKOUT</MainButton>
         </View>
       </View>
@@ -72,6 +100,9 @@ const styles = StyleSheet.create({
   cartTotal: {
     fontWeight: 'bold'
   },
+  listContainer: {
+    marginBottom: 60
+  },
   stickyFooter: {
     position: 'absolute',
     bottom: 0,
@@ -85,5 +116,15 @@ const styles = StyleSheet.create({
   },
   checkoutBtn: {
     margin: 10
+  },
+  deleteBtnContainer: {
+    // justifyContent: 'center',
+    // paddingVertical: 20
+  },
+  deleteBtn: {
+    backgroundColor: colors.red,
+    justifyContent: 'center',
+    marginVertical: 10,
+    marginRight: 10
   }
 })

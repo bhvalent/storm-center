@@ -8,7 +8,8 @@ const colors = {
   lightGrey: '#858585',
   veryLightGrey: '#A3A3A3',
   black: '#302F2F',
-  white: '#efefef'
+  white: '#efefef',
+  red: '#DC3333'
 };
 
 const darkTheme = {
