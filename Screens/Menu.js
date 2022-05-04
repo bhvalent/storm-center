@@ -10,31 +10,28 @@ const colors = getColors();
 const windowWidth = Dimensions.get('window').width;
 
 export default function Menu() {
+
+  const menuCard = (icon, name) => {
+    return (
+      <PressableCard style={styles.card}>
+        <View style={styles.cardContents}>
+          <FontAwesome5 name={icon} size={36} color={colors.veryLightGrey} />
+          <RegularText>{name}</RegularText>
+        </View>
+      </PressableCard>
+    );
+  }
+
   return (
     <View style={styles.screen}>
       <RegularText style={styles.menuHeader}>Menu</RegularText>
       <View style={styles.buttonsContainer}>
         <View style={styles.row}>
-          <PressableCard style={styles.card}>
-            <View style={styles.cardContents}>
-              <FontAwesome5 name="truck" size={36} color={colors.veryLightGrey} />
-              <RegularText>Orders</RegularText>
-            </View>
-          </PressableCard>
-          <PressableCard style={styles.card}>
-            <View style={styles.cardContents}>
-              <FontAwesome5 name="credit-card" size={36} color={colors.veryLightGrey} />
-              <RegularText>Payment</RegularText>
-            </View>
-          </PressableCard>
+          {menuCard("truck", "Orders")}
+          {menuCard("credit-card", "Payments")}
         </View>
         <View style={styles.row}>
-          <PressableCard style={styles.card}>
-            <View style={styles.cardContents}>
-              <FontAwesome5 name="tools" size={36} color={colors.veryLightGrey} />
-              <RegularText>Tools</RegularText>
-            </View>
-          </PressableCard>
+          {menuCard("tools", "Tools")}
         </View>
       </View>
     </View>
@@ -72,4 +69,4 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 8
   }
-})
+});

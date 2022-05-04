@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image, useWindowDimensions, Button } from 'react-native';
+import { StyleSheet, View, Image, useWindowDimensions } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { useShopData } from '../../data/ShopData';
 import RegularText from '../../components/ui/RegularText';
@@ -41,6 +42,12 @@ export default function ProductDetails({ route }) {
   );
 }
 
+ProductDetails.protoTypes = {
+  route: PropTypes.shape({
+    id: PropTypes.string.isRequired
+  }).isRequired
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -75,4 +82,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginVertical: 10
   }
-})
+});

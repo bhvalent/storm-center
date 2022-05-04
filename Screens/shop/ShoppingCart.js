@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
+import PropTypes from 'prop-types';
 
 import MainButton from '../../components/ui/MainButton';
 import PressableCard from '../../components/ui/PressableCard';
@@ -11,7 +12,7 @@ import { useShopData } from '../../data/ShopData';
 
 const colors = getColors();
 
-export default ShoppingCart = ({ navigation }) => {
+export default function ShoppingCart({ navigation }) {
   const { state, dispatch } = useShopData();
 
   const onCheckoutHandler = () => {
@@ -80,6 +81,12 @@ export default ShoppingCart = ({ navigation }) => {
   );
 }
 
+ShoppingCart.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired
+  }).isRequired,
+};
+
 const styles = StyleSheet.create({
   emptyContainer: {
     flex: 1,
@@ -127,4 +134,4 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginRight: 10
   }
-})
+});

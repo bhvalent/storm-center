@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, FlatList, StyleSheet, Image, Dimensions } from 'react-native';
+import PropTypes from 'prop-types';
 
 import PRODUCTS from '../../data/dummy-products'
 import PressableCard from '../../components/ui/PressableCard'
@@ -9,7 +10,7 @@ import RegularText from '../../components/ui/RegularText';
 const colors = getColors();
 const windowWidth = Dimensions.get('window').width;
 
-export default function ProductsOverview({ style, navigation, ...rest }) {
+export default function ProductsOverview({ navigation }) {
   const products = PRODUCTS;
   
   const onPressHandler = (id) => {
@@ -35,6 +36,12 @@ export default function ProductsOverview({ style, navigation, ...rest }) {
   );
 }
 
+ProductsOverview.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired
+  }).isRequired,
+};
+
 const styles = StyleSheet.create({
   list: {
     justifyContent: 'center',
@@ -54,4 +61,4 @@ const styles = StyleSheet.create({
     width: 200,
     borderRadius: 10
   }
-})
+});

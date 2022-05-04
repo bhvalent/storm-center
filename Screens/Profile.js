@@ -3,9 +3,9 @@ import { StyleSheet, View } from 'react-native';
 
 import RegularText from '../components/ui/RegularText';
 
-export default function Profile({ style, ...rest }) {
+export default function Profile() {
   return (
-    <View style={[styles.container, style]} {...rest}>
+    <View style={styles.container}>
       <RegularText>Behold, the Profile!</RegularText>
     </View>
   )
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   }
-})
+});
